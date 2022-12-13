@@ -7,15 +7,21 @@ terraform {
   }
   required_version = ">= 1.1.0"
 
-  cloud {
-    organization = "telus-fourkeys"
+  # cloud {
+  #   organization = "telus-fourkeys"
 
-    workspaces {
-      name = "gh-actions-demo"
-    }
-  }
+  #   workspaces {
+  #     name = "gh-actions-demo"
+  #   }
+  # }
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "fourkeys-31337-tf-state"
+    prefix = "terraform-dummy/state"
+  }
+}
 variable "gcp-creds" {
   default = ""
 }
