@@ -11,8 +11,8 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
-      # - name: 'Set up Cloud SDK'
-      #   uses: 'google-github-actions/setup-gcloud@v1'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
 
       # - name: 'Use gcloud CLI'
       #   run: 'gcloud info'
