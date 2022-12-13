@@ -22,12 +22,12 @@ terraform {
     prefix = "terraform-dummy/state"
   }
 }
-variable "gcp-creds" {
+variable "gcp_creds" {
   default = ""
 }
 
 provider "google" {
-  credentials = var.gcp-creds
+  credentials = var.gcp_creds
 
   project = "fourkeys-31337"
   region  = "us-central1"
