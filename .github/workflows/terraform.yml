@@ -11,24 +11,22 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
+      # - name: 'Set up Cloud SDK'
+      #   uses: 'google-github-actions/setup-gcloud@v1'
+
+      # - name: 'Use gcloud CLI'
+      #   run: 'gcloud info'
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - id: 'auth'
         uses: 'google-github-actions/auth@v1'
         with:
           credentials_json: '${{ secrets.GCP_CRED }}'
 
-      - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v1'
-
-      - name: 'Use gcloud CLI'
-        run: 'gcloud info'
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.access_token }}
         # with:
         #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
