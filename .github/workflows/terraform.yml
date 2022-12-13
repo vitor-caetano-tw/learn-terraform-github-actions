@@ -28,7 +28,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.access_token }
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ steps.auth.outputs.access_token }}
         # with:
         #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
