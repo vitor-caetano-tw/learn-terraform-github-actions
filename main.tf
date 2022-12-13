@@ -34,6 +34,13 @@ provider "google" {
   zone    = "us-central1-c"
 }
 
+module "gcloud_build_event_handler" {
+  source                 = "terraform-google-modules/gcloud/google"
+  version                = "~> 2.0"
+  create_cmd_entrypoint  = "gcloud"
+  create_cmd_body        = "iam service-accounts list"
+}
+
 # resource "google_compute_network" "vpc_network" {
 #   name = "terraform-network"
 # }
